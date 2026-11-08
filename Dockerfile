@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ghcr.io/xtls/xray-core:25.3.6 AS xray
 FROM alpine:3.21
-COPY --from=xray /usr/local/bin/xray /usr/local/bin/xray
+COPY --from=xray /usr/bin/xray /usr/local/bin/xray
 RUN apk add --no-cache ca-certificates tzdata
 COPY config.json /etc/xray/config.json
 EXPOSE 3000
